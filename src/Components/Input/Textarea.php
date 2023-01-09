@@ -16,7 +16,7 @@ class Textarea extends Component
     /**
      * Initialise the component.
      *
-     * @param bool $error
+     * @param  bool  $error
      */
     public function __construct(bool $error = false)
     {

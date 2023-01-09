@@ -8,8 +8,6 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaragenUiKitServiceProvider extends PackageServiceProvider
 {
-
-
     public function configurePackage(Package $package): void
     {
         /*
@@ -26,5 +24,4 @@ class LaragenUiKitServiceProvider extends PackageServiceProvider
     {
         Blade::componentNamespace('Hehecoding\\LaragenUiKit\\Components', 'laragen');
     }
-
 }
