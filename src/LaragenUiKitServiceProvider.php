@@ -2,12 +2,14 @@
 
 namespace Hehecoding\LaragenUiKit;
 
-use Hehecoding\LaragenUiKit\Commands\LaragenUiKitCommand;
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaragenUiKitServiceProvider extends PackageServiceProvider
 {
+
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -17,9 +19,12 @@ class LaragenUiKitServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laragen-ui-kit')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laragen-ui-kit_table')
-            ->hasCommand(LaragenUiKitCommand::class);
+            ->hasViews('laragen');
     }
+
+    public function packageBooted()
+    {
+        Blade::componentNamespace('Hehecoding\\LaragenUiKit\\Components', 'laragen');
+    }
+
 }
