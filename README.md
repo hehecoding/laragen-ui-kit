@@ -11,13 +11,6 @@ You can install the package via composer:
 composer require hehecoding/laragen-ui-kit
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laragen-ui-kit-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -35,13 +28,6 @@ Optionally, you can publish the views using
 
 ```bash
 php artisan vendor:publish --tag="laragen-ui-kit-views"
-```
-
-## Usage
-
-```php
-$laragenUiKit = new Hehecoding\LaragenUiKit();
-echo $laragenUiKit->echoPhrase('Hello, Hehecoding!');
 ```
 
 ## Testing
