@@ -41,15 +41,14 @@ class Group extends Component
      */
     public bool $required = false;
 
-
     /**
      * Create the component instance.
      *
-     * @param string $label
-     * @param string $for
-     * @param string|null $instructions
-     * @param bool $required
-     * @param array $errors
+     * @param  string  $label
+     * @param  string  $for
+     * @param  string|null  $instructions
+     * @param  bool  $required
+     * @param  array  $errors
      */
     public function __construct(string $label, string $for, ?string $instructions = null, bool $required = false, array $errors = [])
     {
@@ -64,6 +63,7 @@ class Group extends Component
      * Get the view / contents that represent the component.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     *
      * @noinspection PhpFullyQualifiedNameUsageInspection
      */
     public function render()
