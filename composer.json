@@ -1,6 +1,6 @@
 {
     "name": "hehecoding/laragen-ui-kit",
-    "description": "This is my package laragen-ui-kit",
+    "description": "Blade component UI kit for LaraGEN applications",
     "keywords": [
         "hehecoding",
         "laravel",
@@ -35,8 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hehecoding\\LaragenUiKit\\": "src",
-            "Hehecoding\\LaragenUiKit\\Database\\Factories\\": "database/factories"
+            "Hehecoding\\LaragenUiKit\\": "src"
         }
     },
     "autoload-dev": {

@@ -1,8 +1,8 @@
 # This is my package laragen-ui-kit
-
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/hehecoding/laragen-ui-kit/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/hehecoding/laragen-ui-kit/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hehecoding/laragen-ui-kit/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/hehecoding/laragen-ui-kit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hehecoding/laragen-ui-kit.svg?style=flat-square)](https://packagist.org/packages/hehecoding/laragen-ui-kit)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/hehecoding/laragen-ui-kit/run-tests.yml?branch=master&label=tests&style=flat-square)](https://github.com/hehecoding/laragen-ui-kit/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hehecoding/laragen-ui-kit/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/hehecoding/laragen-ui-kit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/hehecoding/laragen-ui-kit.svg?style=flat-square)](https://packagist.org/packages/hehecoding/laragen-ui-kit)
 ## Installation
 
 You can install the package via composer:
