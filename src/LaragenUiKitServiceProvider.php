@@ -2,9 +2,9 @@
 
 namespace Hehecoding\LaragenUiKit;
 
+use Hehecoding\LaragenUiKit\Commands\LaragenUiKitCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Hehecoding\LaragenUiKit\Commands\LaragenUiKitCommand;
 
 class LaragenUiKitServiceProvider extends PackageServiceProvider
 {

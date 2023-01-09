@@ -2,9 +2,9 @@
 
 namespace Hehecoding\LaragenUiKit\Tests;
 
+use Hehecoding\LaragenUiKit\LaragenUiKitServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Hehecoding\LaragenUiKit\LaragenUiKitServiceProvider;
 
 class TestCase extends Orchestra
 {
