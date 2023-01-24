@@ -2,11 +2,10 @@
 
     {{ $attributes->merge([
         'type' => 'text',
-        'class' =>
-            'form-control',
+        'class' => 'form-control',
     ])->class([
         'error' => !!$error,
     ]) }}
 
-       maxlength="255"
+    maxlength="255"
 />
