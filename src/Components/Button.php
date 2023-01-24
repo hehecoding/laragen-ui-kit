@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class Button extends Component
 {
-
     /**
      * The button theme.
      * Available sizes: primary
@@ -22,10 +21,10 @@ class Button extends Component
     /**
      * Initialise the component.
      *
-     * @param string $theme
-     * @param string $size
+     * @param  string  $theme
+     * @param  string  $size
      */
-    public function __construct( string $theme = 'primary', string $size = 'default')
+    public function __construct(string $theme = 'primary', string $size = 'default')
     {
         $this->theme = $theme;
         $this->size = $size;
