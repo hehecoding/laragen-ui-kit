@@ -1,4 +1,10 @@
-<div  class="form-group @if(count($errors)) error @endif">
+<div
+    {{ $attributes->merge([
+            'class' => 'form-group',
+            ])->class([
+                'error' => !!$errors
+            ]) }}
+>
     <label for="{{ $for }}"
           >
         <span class="block">{{ $labelPrefix ?? null }}</span>

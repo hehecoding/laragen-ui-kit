@@ -4,13 +4,13 @@ namespace Hehecoding\LaragenUiKit\Components;
 
 use Illuminate\View\Component;
 
-class Button extends Component
+class Link extends Component
 {
     /**
      * The button theme.
      * Available sizes: primary
      */
-    public string $color = 'primary';
+    public string $color = 'link';
 
     /**
      * The button size.
@@ -24,7 +24,7 @@ class Button extends Component
      * @param  string  $color
      * @param  string  $size
      */
-    public function __construct(string $color = 'primary', string $size = 'md')
+    public function __construct(string $color = 'link', string $size = 'md')
     {
         $this->color = $color;
         $this->size = $size;
@@ -37,6 +37,6 @@ class Button extends Component
      */
     public function render()
     {
-        return view('laragen::components.button');
+        return view('laragen::components.link');
     }
 }
