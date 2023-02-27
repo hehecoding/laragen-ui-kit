@@ -8,23 +8,16 @@ class Checkbox extends Component
 {
     /**
      * Whether the toggle should be in an on state.
-     *
-     * @var bool
      */
     public bool $on = false;
 
     /**
      * Whether the toggle should be disabled.
-     *
-     * @var bool
      */
     public bool $disabled = false;
 
     /**
      * Create the component instance.
-     *
-     * @param  bool  $on
-     * @param  bool  $disabled
      */
     public function __construct(bool $on = false, bool $disabled = false)
     {

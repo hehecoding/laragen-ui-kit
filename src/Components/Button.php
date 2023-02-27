@@ -26,10 +26,6 @@ class Button extends Component
 
     /**
      * Initialise the component.
-     *
-     * @param  string  $color
-     * @param  string  $size
-     * @param  bool  $outline
      */
     public function __construct(string $color = 'primary', string $size = 'md', bool $outline = false)
     {

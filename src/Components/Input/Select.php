@@ -8,15 +8,11 @@ class Select extends Component
 {
     /**
      * Whether the input has an error to show.
-     *
-     * @var bool
      */
     public bool $error = false;
 
     /**
      * Initialise the component.
-     *
-     * @param  bool  $error
      */
     public function __construct(bool $error = false)
     {

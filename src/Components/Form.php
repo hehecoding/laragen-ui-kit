@@ -12,9 +12,6 @@ class Form extends Component
 
     /**
      * Initialise the component.
-     *
-     * @param  string  $method
-     * @param  string  $action
      */
     public function __construct(string $method = 'POST', string $action = '')
     {
