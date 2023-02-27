@@ -19,15 +19,23 @@ class Button extends Component
     public string $size = 'default';
 
     /**
+     * The button outline.
+     * Available sizes: true, false
+     */
+    public bool $outline = false;
+
+    /**
      * Initialise the component.
      *
      * @param  string  $color
      * @param  string  $size
+     * @param  bool  $outline
      */
-    public function __construct(string $color = 'primary', string $size = 'md')
+    public function __construct(string $color = 'primary', string $size = 'md', bool $outline = false)
     {
         $this->color = $color;
         $this->size = $size;
+        $this->outline = $outline;
     }
 
     /**
