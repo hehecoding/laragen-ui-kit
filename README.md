@@ -63,7 +63,7 @@ The following props are available for the Laragen Button Component:
 * `href` (string, optional): if provided, the button will be rendered as an anchor tag with this URL.
 
 #### Examples
-Here are some examples of how to use the Tailwind Button Component with different props:
+Here are some examples of how to use the Laragen Button Component with different props:
 ```php
 <!-- A primary button with a custom text and a before icon -->
 <x-laragen::button color="success" iconBefore="fas fa-plus">Add Item</x-laragen::button>
