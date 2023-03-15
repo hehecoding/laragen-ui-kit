@@ -2,43 +2,43 @@
     <select x-cloak x-ref="mainSelectForTheComponent" class="hidden">
         {{$slot}}
     </select>
-    <input name="values" type="hidden" x-bind:value="selectedValues()">
+    <input name="values" type="hidden" x-bind:value="selectedValues" x-on:change="console.log('test');">
 
     <div class="relative">
-        <div x-on:click="open" class="w-full">
-            <div class="">
+        <div x-on:click="toggle" class="w-full">
+            <div class="relative">
                 <div class="flex flex-auto flex-wrap">
                     <div class="form-control flex flex-wrap items-center">
-                        <span x-show="selected.length == 0">Choose</span>
-                        <template x-for="(option, index) in firstThree" :key="index">
+                        <span x-show="selected.length === 0">Choose</span>
+                        <template x-for="(selectedOption, selectedIndex) in selected.slice(0, 3)" :key="selectedIndex">
                             <div class="mx-1 pl-2 rounded bg-gray-100 border flex items-center">
-                                <div class="text-xs max-w-full" x-model="options[option]"
-                                     x-text="options[option].text"></div>
+                                <div class="text-xs max-w-full" x-text="selectedOption.text"></div>
                                 <x-laragen::button icon="fal fa-times" size="xs" variant="plain" color="error"
-                                                   x-on:click.stop="remove(index,option)" class="text-xs">
+                                                   x-on:click.stop="remove(selectedIndex)" class="text-xs">
                                 </x-laragen::button>
                             </div>
                         </template>
-                        <span x-show="selected.length > 3" x-text="`+ ${selected.length - 3} selected`" class="text-xs"></span>
+                        <span x-show="selected.length > 3" x-text="`+ ${selected.length - 3} selected`"
+                              class="text-xs"></span>
                     </div>
                 </div>
-                <div class="absolute right-0 cursor-pointer" style="top: calc(50% - 12px)">
-                    <x-laragen::button x-on:click.stop="close" x-show="isOpen() === true" variant="plain"
-                                       icon="fal fa-angle-up" color="gray"></x-laragen::button>
-                    <x-laragen::button x-show="isOpen() === false" variant="plain" icon="fal fa-angle-down"
+                <div class="absolute right-0 cursor-pointer top-4">
+                    <x-laragen::button x-on:click.stop="toggle" x-show="show" variant="plain" icon="fal fa-angle-up"
+                                       color="gray"></x-laragen::button>
+                    <x-laragen::button x-show="!show" variant="plain" icon="fal fa-angle-down"
                                        color="gray"></x-laragen::button>
                 </div>
             </div>
         </div>
 
         <div class="w-full px-4">
-            <div x-show.transition.origin.top="isOpen()"
+            <div x-show.transition.origin.top="show"
                  class="w-full absolute right-0 z-10 rounded bg-white shadow overflow-y-auto max-h-64"
                  role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                 <div class="py-1">
                     <template x-for="(option,index) in options" :key="index" class="overflow-auto">
                         <div class="hover:bg-gray-100" :class="option.selected ? 'bg-gray-100' : ''"
-                             @click="select(index,$event)">
+                             @click="toggleOption(index, $event)">
                             <div class="relative">
                                 <div class="py-1 px-4 cursor-pointer flex items-center justify-between">
                                     <div class="mx-2 leading-6" x-model="option" x-text="option.text"></div>
@@ -59,7 +59,6 @@
         </div>
     </div>
 </div>
-
 <script>
     function dropdown() {
         return {
@@ -69,33 +68,25 @@
             initComponent() {
                 this.loadOptions();
             },
-            get firstThree() {
-                return this.selected.slice(0, 3);
-            },
-            open() {
-                this.show = true
-                this.loadOptions();
-            },
             close() {
                 this.show = false
             },
-            isOpen() {
-                return this.show === true
+            toggle() {
+                this.show = !this.show
+                this.loadOptions();
             },
-            select(index, event) {
+            toggleOption(index, event) {
                 if (!this.options[index].selected) {
-
                     this.options[index].selected = true;
                     this.options[index].element = event.target;
-                    this.selected.push(index);
-
+                    this.selected.push(this.options[index]);
                 } else {
                     this.selected.splice(this.selected.lastIndexOf(index), 1);
                     this.options[index].selected = false
                 }
             },
-            remove(index, option) {
-                this.options[option].selected = false;
+            remove(index) {
+                this.options[index].selected = false;
                 this.selected.splice(index, 1);
             },
             loadOptions() {
@@ -111,10 +102,9 @@
             },
             selectedValues() {
                 return this.selected.map((option) => {
-                    return this.options[option].value;
+                    return option.value;
                 })
-            },
-
+            }
         }
     }
 </script>
