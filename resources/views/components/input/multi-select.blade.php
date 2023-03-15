@@ -81,7 +81,7 @@
                     this.options[index].element = event.target;
                     this.selected.push(this.options[index]);
                 } else {
-                    this.selected.splice(this.selected.lastIndexOf(index), 1);
+                    this.selected.splice(index, 1);
                     this.options[index].selected = false
                 }
             },
