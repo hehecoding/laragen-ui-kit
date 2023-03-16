@@ -9,7 +9,8 @@
     'loading' => false,
     'size' => 'normal',
     'variant' => 'default',
-    'href' => null
+    'href' => null,
+    'type' => 'button'
 ])
 
 @php
@@ -17,6 +18,7 @@
             'primary' => 'primary',
             'success' => 'green',
             'error' => 'red',
+            'gray' => 'gray'
         ];
 
         $sizes = [
@@ -55,7 +57,7 @@
         $classes .= ' ' . ($sizes[$size] ?? $sizes['normal']);
 @endphp
 
-<{{ $tag }} {{ $href ? 'href=' . $href : '' }} {{ $attributes->merge(['class' => $classes, 'disabled' => $disabled || $loading]) }}>
+<{{ $tag }} {{ $href ? 'href=' . $href : '' }} {{ $attributes->merge(['class' => $classes, 'disabled' => $disabled || $loading]) }} {{ $tag === 'button' ? 'type=' . $type : '' }}>
     @if ($loading)
         <i class="fas fa-spinner fa-spin"></i>
     @else
