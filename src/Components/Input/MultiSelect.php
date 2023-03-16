@@ -19,23 +19,12 @@ class MultiSelect extends Component
         $this->error = $error;
     }
 
-    public $selected = [];
-
-    public $options = [];
-
-    public function toggleSelected($option)
-    {
-        if (in_array($option, $this->selected)) {
-            $this->selected = array_diff($this->selected, [$option]);
-        } else {
-            $this->selected[] = $option;
-        }
-    }
-
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|\Closure|string
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     *
+     * @noinspection PhpFullyQualifiedNameUsageInspection
      */
     public function render()
     {
