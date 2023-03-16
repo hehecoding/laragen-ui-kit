@@ -4,7 +4,7 @@
     x-on:click.outside="show = false"
     {{$attributes->merge(['class' => 'select-container'])->class(['error' => !!$error,])}}
 >
-    <select x-cloak x-ref="mainSelectForTheComponent" class="" multiple {{$attributes->except(['class', 'error'])}} >
+    <select x-cloak x-ref="mainSelectForTheComponent" class="hidden" multiple {{$attributes->except(['class', 'error'])}} >
         {{$slot}}
     </select>
     <div class="relative">
