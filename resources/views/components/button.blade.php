@@ -10,7 +10,7 @@
     'size' => 'normal',
     'variant' => 'default',
     'href' => null,
-    'type' => 'button'
+    'type' => 'submit'
 ])
 
 @php
