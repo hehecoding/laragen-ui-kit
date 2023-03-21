@@ -18,7 +18,8 @@
             'primary' => 'primary',
             'success' => 'green',
             'error' => 'red',
-            'gray' => 'gray'
+            'gray' => 'gray',
+            'blue' => 'blue'
         ];
 
         $sizes = [
