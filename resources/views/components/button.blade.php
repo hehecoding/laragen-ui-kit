@@ -23,6 +23,7 @@
         ];
 
         $sizes = [
+            'icon' => 'w-4 h-4 text-xs p-1',
             'xs' => 'px-2.5 py-1.5 text-xs leading-4',
             'sm' => 'px-3 py-2 text-sm leading-4',
             'normal' => 'px-4 py-2 text-base leading-5',
