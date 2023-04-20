@@ -23,5 +23,4 @@ trait WithToasts
     {
         $this->dispatchBrowserEvent('show-toast', ['type' => 'warning', 'text' => $message]);
     }
-
 }

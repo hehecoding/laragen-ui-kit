@@ -9,7 +9,7 @@
         },
         fire(id) {
             this.visible.push(this.notices.find(notice => notice.id === id));
-            const timeShown = 2000000 * this.visible.length;
+            const timeShown = 2000 * this.visible.length;
             setTimeout(() => {
                 this.remove(id);
             }, timeShown);
