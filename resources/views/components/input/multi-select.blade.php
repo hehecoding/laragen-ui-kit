@@ -1,5 +1,71 @@
 <div
-    x-data="dropdown()"
+    x-data="{
+            options: [],
+            selectedOptions: [],
+            show: false,
+            init(){
+                const selectElement = this.selectInput
+                this.loadOptions()
+                const handleMutation = (mutationsList) => {
+                    for (const mutation of mutationsList) {
+                        if (mutation.type === 'childList') {
+                            this.selectedOptions = []
+                            this.loadOptions()
+                            break;
+                        }
+                    }
+                };
+
+                this.observer = new MutationObserver(handleMutation);
+                this.observer.observe(selectElement, { childList: true });
+            },
+            get selectInputOptions() {
+                return this.selectInput.options
+            },
+            get selectInput() {
+                return this.$refs.mainSelectForTheComponent;
+            },
+            toggle() {
+                this.show = !this.show
+            },
+            toggleOption(value) {
+
+                const index = this.options.findIndex(option => option.value === value);
+
+                const selectElement = this.selectInput;
+                const option = selectElement.querySelector(`option[value='${value}']`);
+                if (option.selected) {
+                    option.selected = false;
+                    this.options[index].selected = false;
+                } else {
+                    option.selected = true;
+                    this.options[index].selected = true;
+                }
+                // Dispatch the input event to notify Livewire of the change
+                const inputEvent = new Event('input', { bubbles: true });
+                selectElement.dispatchEvent(inputEvent);
+
+                this.selectedOptions = [...this.selectInputOptions].filter(option => option.selected)
+                    .map(option => ({
+                        value: option.value,
+                        text: option.innerText,
+                        selected: option.selected
+                    }));
+
+            },
+            loadOptions() {
+                this.options = [...this.selectInputOptions].map(option => ({
+                    value: option.value,
+                    text: option.innerText,
+                    selected: option.selected
+                }));
+            },
+            beforeDestroy() {
+                if (this.observer) {
+                    this.observer.disconnect();
+                }
+            },
+        }"
     x-init="init"
     x-on:click.outside="show = false"
     {{$attributes->merge(['class' => 'select-container'])->class(['error' => !!$error,])}}
@@ -62,73 +128,3 @@
         </div>
     </div>
 </div>
-<script>
-    function dropdown() {
-        return {
-            options: [],
-            selectedOptions: [],
-            show: false,
-            init(){
-                const selectElement = this.selectInput
-                const handleMutation = (mutationsList) => {
-                    for (const mutation of mutationsList) {
-                        if (mutation.type === 'childList') {
-                            this.selectedOptions = []
-                            this.loadOptions()
-                            break;
-                        }
-                    }
-                };
-
-                this.observer = new MutationObserver(handleMutation);
-                this.observer.observe(selectElement, { childList: true });
-            },
-            get selectInputOptions() {
-                return this.selectInput.options
-            },
-            get selectInput() {
-                return this.$refs.mainSelectForTheComponent;
-            },
-            toggle() {
-                this.show = !this.show
-            },
-            toggleOption(value) {
-
-                const index = this.options.findIndex(option => option.value === value);
-
-                const selectElement = this.selectInput;
-                const option = selectElement.querySelector(`option[value='${value}']`);
-                if (option.selected) {
-                    option.selected = false;
-                    this.options[index].selected = false;
-                } else {
-                    option.selected = true;
-                    this.options[index].selected = true;
-                }
-                // Dispatch the input event to notify Livewire of the change
-                const inputEvent = new Event('input', { bubbles: true });
-                selectElement.dispatchEvent(inputEvent);
-
-                this.selectedOptions = [...this.selectInputOptions].filter(option => option.selected)
-                    .map(option => ({
-                        value: option.value,
-                        text: option.innerText,
-                        selected: option.selected
-                    }));
-
-            },
-            loadOptions() {
-                this.options = [...this.selectInputOptions].map(option => ({
-                    value: option.value,
-                    text: option.innerText,
-                    selected: option.selected
-                }));
-            },
-            beforeDestroy() {
-                if (this.observer) {
-                    this.observer.disconnect();
-                }
-            },
-        }
-    }
-</script>
