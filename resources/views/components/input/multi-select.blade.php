@@ -82,7 +82,7 @@
                         <template x-for="selectedOption in selectedOptions.slice(0, 3)" :key="selectedOption.value">
                             <div class="mx-1 pl-2 rounded bg-gray-100 border flex items-center">
                                 <div class="text-xs max-w-full" x-text="selectedOption.text"></div>
-                                <x-laragen::button icon="fal fa-times" size="xs" variant="plain" color="error"
+                                <x-laragen::button type="button" icon="fal fa-times" size="xs" variant="plain" color="error"
                                                    x-on:click.stop="toggleOption(selectedOption.value)" class="text-xs">
                                 </x-laragen::button>
                             </div>
@@ -92,9 +92,9 @@
                     </div>
                 </div>
                 <div class="absolute right-0 cursor-pointer top-4">
-                    <x-laragen::button x-show="show" variant="plain" icon="fal fa-angle-up"
+                    <x-laragen::button type="button" x-show="show" variant="plain" icon="fal fa-angle-up"
                                        color="gray"></x-laragen::button>
-                    <x-laragen::button x-show="!show" variant="plain" icon="fal fa-angle-down"
+                    <x-laragen::button type="button" x-show="!show" variant="plain" icon="fal fa-angle-down"
                                        color="gray"></x-laragen::button>
                 </div>
             </div>
