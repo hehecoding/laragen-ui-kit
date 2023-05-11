@@ -1,8 +1,6 @@
-<textarea
-    {{ $attributes->merge([
+<textarea {{ $attributes->merge([
       'class' => 'form-control',
     ])->class([
       'error' => !!$error,
     ]) }}
-    maxlength="255"
-></textarea>
+    maxlength="255"></textarea>

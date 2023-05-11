@@ -10,7 +10,8 @@
     'size' => 'normal',
     'variant' => 'default',
     'href' => null,
-    'type' => 'submit'
+    'type' => 'submit',
+    'elevated' => false
 ])
 
 @php
@@ -57,6 +58,7 @@
         $classes .= ' ' . ($iconBefore || $iconAfter ? 'flex' : '');
         $classes .= ' ' . ($loading ? 'relative' : '');
         $classes .= ' ' . ($sizes[$size] ?? $sizes['normal']);
+        $classes .= $elevated ? ' shadow' : '';
 @endphp
 
 <{{ $tag }} {{ $href ? 'href=' . $href : '' }} {{ $attributes->merge(['class' => $classes, 'disabled' => $disabled || $loading]) }} {{ $tag === 'button' ? 'type=' . $type : '' }}>

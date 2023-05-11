@@ -1,15 +1,22 @@
 @props([
+    'id' => uniqid('laragen-modal-'),
     'title' => 'Adaugă',
     'widthClass' => 'w-full sm:max-w-lg lg:max-w-screen-lg',
     'hideActions' => false
-    ])
+])
 
 <div x-data="{ open: false }"
      @keydown.window.escape="open = false"
+     @close-{{$id}}.window="open = false "
+     @open-{{$id}}.window="open = true "
      x-ref="dialog"
      x-cloak
-     class="relative z-50" aria-labelledby="{{ $title }}" role="dialog" aria-modal="true"
-     xmlns:x-laragen="http://www.w3.org/1999/html">
+     class="relative"
+     aria-labelledby="{{ $title }}"
+     role="dialog"
+     aria-modal="true"
+     id="{{$id}}"
+>
 
     @isset($activator)
         {{ $activator }}
@@ -27,11 +34,11 @@
          x-transition:leave="ease-in duration-200"
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
-         class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity"
+         class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity z-40"
     >
     </div>
 
-    <div x-show="open" class="fixed inset-2 z-10 overflow-y-auto">
+    <div x-show="open" class="fixed inset-2 z-50 overflow-y-auto">
         <div class="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
             <div
                 x-show="open"
@@ -42,7 +49,7 @@
                 x-transition:leave="ease-in duration-200"
                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                class="{{ $widthClass }} relative transform overflow-hidden rounded bg-white text-left shadow transition-all"
+                class="{{ $widthClass }} relative transform overflow-hidden rounded bg-white text-left shadow transition-all z-50"
             >
 
                 <div class="flex justify-between items-center gap-2 px-5 py-3 border-b border-gray-300">
