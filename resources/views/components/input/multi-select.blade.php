@@ -45,13 +45,16 @@
                 const inputEvent = new Event('input', { bubbles: true });
                 selectElement.dispatchEvent(inputEvent);
 
-                this.selectedOptions = [...this.selectInputOptions].filter(option => option.selected)
+                this.markOptionsAsSelected();
+
+            },
+            markOptionsAsSelected(){
+               this.selectedOptions = [...this.selectInputOptions].filter(option => option.selected)
                     .map(option => ({
                         value: option.value,
                         text: option.innerText,
                         selected: option.selected
                     }));
-
             },
             loadOptions() {
                 this.options = [...this.selectInputOptions].map(option => ({
@@ -59,6 +62,8 @@
                     text: option.innerText,
                     selected: option.selected
                 }));
+
+                this.markOptionsAsSelected();
             },
             beforeDestroy() {
                 if (this.observer) {
@@ -67,6 +72,7 @@
             },
         }"
     x-init="init"
+    x-title="LaraGEN-MultiSelect"
     x-on:click.outside="show = false"
     {{$attributes->merge(['class' => 'select-container'])->class(['error' => !!$error,])}}
 >
