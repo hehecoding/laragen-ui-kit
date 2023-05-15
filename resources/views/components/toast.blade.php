@@ -25,6 +25,7 @@
             add(event.detail);
         });
     }"
+    x-title="LaraGEN-Toast"
     class="w-80 flex flex-col items-end space-y-4 fixed bottom-4 right-4"
     xmlns:x-laragen="http://www.w3.org/1999/html">
     <template x-for="notice of notices" :key="notice.id">

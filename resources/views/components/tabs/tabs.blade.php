@@ -4,6 +4,7 @@
         activeTab: '{{ \Illuminate\Support\Str::slug($active) }}',
         tabHeadings: [],
      }"
+     x-title="LaraGEN-Tabs"
 >
     <div class="tab-list" role="tablist"
     >

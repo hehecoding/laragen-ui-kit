@@ -15,6 +15,7 @@
      }"
 
      x-show="activeTab===id"
+     x-title="LaraGEN-Tab"
 
      role="tabpanel"
      :aria-labelledby="`tab-${id}`"

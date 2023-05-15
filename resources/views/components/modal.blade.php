@@ -10,6 +10,7 @@
      @close-{{$id}}.window="open = false "
      @open-{{$id}}.window="open = true "
      x-ref="dialog"
+     x-title="LaraGEN-Modal"
      x-cloak
      class="relative"
      aria-labelledby="{{ $title }}"
