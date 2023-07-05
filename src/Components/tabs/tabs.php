@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace Hehecoding\LaragenUiKit\Components\Tabs;
 
 use Illuminate\View\Component;
 
